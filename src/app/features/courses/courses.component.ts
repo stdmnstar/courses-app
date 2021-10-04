@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 // @ts-ignore
 import { mockedCourseList } from '../../../assets/mock.js';
-import { EMPTY_LIST_INFO_TITLE, EMPTY_LIST_INFO_TEXT } from '../../shared/constants';
+import { EMPTY_LIST_INFO_TITLE, EMPTY_LIST_INFO_TEXT } from '../constants';
 
 @Component({
   selector: 'app-courses',

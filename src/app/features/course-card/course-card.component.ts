@@ -1,12 +1,12 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ICourse} from '../../../../dto';
+import {ICourse} from '../../../dto';
 import * as moment from 'moment';
 import {
   DATE_FORMAT,
   CREATED_LABEL_TEXT,
   DURATION_LABEL_TEXT,
   AUTHORS_LABEL_TEXT
-} from '../../../shared/constants';
+} from '../constants';
 
 const TEXT_MAX_LENGTH: number = 500;
 

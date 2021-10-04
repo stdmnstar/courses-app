@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IconName } from '@fortawesome/free-solid-svg-icons';
-import { ICourse } from '../../../../dto';
+import { ICourse } from '../../../dto';
 
 @Component({
   selector: 'app-course-list',
