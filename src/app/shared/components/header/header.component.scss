@@ -1,14 +1,11 @@
 .header {
-
   height: 5rem;
-  border: 2px solid rgb(245, 153, 153);
-
+  background-color: #f6fff0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 10px;
   margin-bottom: 10px;
-
   &-logo {
     width: 4rem;
   }

@@ -6,15 +6,15 @@
   <div class="course-card-info">
     <div class="info-item">
       <span class="name">{{ authorsLabelText }}:</span>
-      <span class="value"> {{ formatAuthors }}</span>
+      <span class="value"> {{ course.authors | stringjoiner:', ' }}</span>
     </div>
     <div class="info-item">
       <span class="name">{{ durationLabelText }}:</span>
-      <span class="value"> {{ formatDuration }}</span>
+      <span class="value"> {{ course.duration | duration }}</span>
     </div>
     <div class="info-item">
       <span class="name">{{ createdLabelText }}:</span>
-      <span class="value"> {{ formatDate }}</span>
+      <span class="value"> {{ course.creationDate | creationdate }}</span>
     </div>
     <ng-content></ng-content>
   </div>
