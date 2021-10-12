@@ -1,9 +1,9 @@
 <div class="course-list">
   <app-course-card *ngFor="let course of courses" [course]="course">
     <div class="card-buttons">
-      <app-button class="card-buttons-show" [text]="'Show course'"></app-button>
+      <app-button class="card-buttons-show" [text]="'Show course'" (click)="showCourse(course.id)"></app-button>
       <div *ngIf="isEditable" class="card-buttons-action">
-        <app-button [iconName]="editIcon"></app-button>
+        <app-button [iconName]="editIcon" (click)="editCourse(course.id)"></app-button>
         <app-button [iconName]="trashIcon"></app-button>
       </div>
     </div>

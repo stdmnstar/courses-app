@@ -1,5 +1,9 @@
-import { Component } from '@angular/core';
-import { mockedCourseList } from '../../../assets/mock';
+import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { AuthorsStoreService } from 'src/app/services/authors-store.service';
+import { CoursesStoreService } from 'src/app/services/courses-store.service';
+import { ICourse } from 'src/dto';
 import { EMPTY_LIST_INFO_TITLE, EMPTY_LIST_INFO_TEXT } from '../constants';
 
 @Component({
@@ -7,13 +11,31 @@ import { EMPTY_LIST_INFO_TITLE, EMPTY_LIST_INFO_TEXT } from '../constants';
   templateUrl: './courses.component.html',
   styleUrls: ['./courses.component.scss']
 })
-export class CoursesComponent {
+export class CoursesComponent implements OnDestroy {
   public userName = 'David';
-  public courses = mockedCourseList;
+  public courses: ICourse[] = [];
   public emptyListInfoTitle = EMPTY_LIST_INFO_TITLE;
   public emptyListInfoText = EMPTY_LIST_INFO_TEXT;
 
   public isOpenModal = false;
+
+  private subscriptions: Subscription = new Subscription();
+
+  constructor(
+    private courseStore: CoursesStoreService,
+    private authorsStore: AuthorsStoreService,
+    private router: Router
+  ) {
+    const courseStoreSubscribe = this.courseStore.courses$
+      .subscribe((data) => {
+        this.courses = data;
+      });
+    this.subscriptions.add(courseStoreSubscribe);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.unsubscribe();
+  }
 
   public openModal() {
     this.isOpenModal = true;
@@ -28,5 +50,9 @@ export class CoursesComponent {
   }
 
   public onSearch(value: string) {
+  }
+
+  public onAddCourseClick() {
+    this.router.navigate(['/add']);
   }
 }
