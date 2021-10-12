@@ -1,0 +1,13 @@
+.search-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  border: 1px solid #0a4f1f;
+  width: 80%;
+
+  &:hover, &:active {
+    border-color: #1eed5d;
+  }
+}

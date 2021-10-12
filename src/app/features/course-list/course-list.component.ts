@@ -8,8 +8,8 @@ import { ICourse } from '../../../dto';
   styleUrls: ['./course-list.component.scss']
 })
 export class CourseListComponent implements OnInit {
-  @Input() courses!: ICourse[];
-  @Input() isEditable!: boolean;
+  @Input() courses: ICourse[] = [];
+  @Input() isEditable: boolean = false;
 
   public trashIcon: IconName = 'trash';
   public editIcon: IconName = 'pen';

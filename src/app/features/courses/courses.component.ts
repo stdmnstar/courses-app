@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-// @ts-ignore
-import { mockedCourseList } from '../../../assets/mock.js';
+import { mockedCourseList } from '../../../assets/mock';
 import { EMPTY_LIST_INFO_TITLE, EMPTY_LIST_INFO_TEXT } from '../constants';
 
 @Component({
@@ -26,5 +25,8 @@ export class CoursesComponent {
 
   public confirmModal(result: any) {
     this.isOpenModal = false;
+  }
+
+  public onSearch(value: string) {
   }
 }
