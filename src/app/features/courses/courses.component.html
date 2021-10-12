@@ -13,6 +13,6 @@
 
   <app-course-list *ngIf="courses.length" [courses]="courses" [isEditable]="true"></app-course-list>
   <app-info *ngIf="!courses.length" [title]="emptyListInfoTitle" [text]="emptyListInfoText">
-    <app-button [text]="'Add new course'"></app-button>
   </app-info>
+  <app-button [text]="'Add new course'" (click)="onAddCourseClick()"></app-button>
 </div>
