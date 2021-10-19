@@ -12,12 +12,24 @@ import { RegistrationModule } from "./features/registration/registration.module"
 import { CourseListModule } from "./features/course-list/course-list.module";
 import { TokenInterceptor } from './auth/interceptors/token.interceptor';
 import { WINDOW_PROVIDERS } from './services/window.service';
+import { StoreModule } from '@ngrx/store';
+import { effects, reducers } from './store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+    StoreModule.forRoot(reducers),
+    EffectsModule.forRoot(effects),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+      autoPause: true,
+    }),
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
