@@ -1,14 +1,14 @@
 <div class="container">
   <app-header></app-header>
   <div class="form-container">
-    <form #loginForm="ngForm" novalidate (ngSubmit)="submit(loginForm)">
+    <form #loginForm="ngForm" novalidate>
       <div class="form">
         <div class="form-field">
           <div class="form-field-input">
-            <label bold>Email</label>
-            <input class="input" name="Email" type="text" ngModel #Email="ngModel" email />
+            <label bold>Login</label>
+            <input class="input" name="login" type="text" ngModel #login="ngModel" email />
           </div>
-          <app-input-validator [checkIsInvalid]="checkInvalid(Email)" [getErrorMessage]="getErrorMessage(Email)">
+          <app-input-validator [checkIsInvalid]="checkInvalid(login)" [getErrorMessage]="getErrorMessage(login)">
           </app-input-validator>
         </div>
         <div class="form-field">
@@ -23,7 +23,7 @@
           <app-input-validator [checkIsInvalid]="checkInvalid(password)" [getErrorMessage]="getErrorMessage(password)">
           </app-input-validator>
         </div>
-        <app-button [text]="'Login'"></app-button>
+        <app-button [text]="'Login'" (click)="onLoginClick(loginForm)"></app-button>
       </div>
     </form>
     <div class="registration">
